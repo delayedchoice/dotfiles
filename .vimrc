@@ -73,6 +73,9 @@ Plugin 'wgibbs/vim-irblack'
 Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'diepm/vim-rest-console'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'mtth/scratch.vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -82,6 +85,7 @@ filetype plugin indent on
 "  \ 'dir':  'out$\|target$\|\.git$\|\.hg$\|\.svn$\|\.yardoc$',
 "  \ 'file': '\.exe$\|\.so$\|\.dat$'
 "  \ }
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor
 let g:paredit_mode=0
 
 " The Silver Searcher
@@ -90,11 +94,11 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g --hidden ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
-"  nnoremap S :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+  nnoremap F :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
 endif
 nnoremap Q :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " bind \ (backward slash) to grep shortcut
@@ -319,9 +323,9 @@ augroup END
 " }}}
 
 " Tagbar settings {{{
-nnoremap <leader>l :TagbarToggle<cr><C-w>l
+"nnoremap <leader>l :TagbarToggle<cr><C-w>l
 "inoremap <leader>l :TagbarToggle<cr><C-w>l
-vnoremap <leader>l :TagbarToggle<cr><C-w>l
+"vnoremap <leader>l :TagbarToggle<cr><C-w>l
 
 let g:tagbar_type_objc = {
     \ 'ctagstype' : 'ObjectiveC',
@@ -401,6 +405,11 @@ nnoremap <leader>gn :Geeknote<cr>
 let g:livedown_autorun = 1
 " }}}
 
+" Scratch settings {{{
+let g:scratch_horizontal = 1 
+" }}}
+
+
 " Emmet settings {{{
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,handlebars.html EmmetInstall
@@ -458,7 +467,10 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " }}}
-
+let g:ctrlp_user_command = 'ag %s -l -nocolor -g .'
+let g:ctrlp_match_window = 'results:100' " overcome limit imposed by max height
+" bind K to grep word under cursor
+"nnoremap F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " Lightline settings {{{
 let g:lightline = {
       \   'colorscheme': 'wombat',

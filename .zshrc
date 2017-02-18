@@ -93,13 +93,12 @@ export GOPATH=$HOME/go
 export JAVA_OPTS="-Dapple.awt.UIElement=true"
 export _JAVA_OPTIONS=$JAVA_OPTS
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/
-#export JAVA5_HOME=/Library/Java/Home
-#export JAVA6_HOME=/Library/Java/Home
 export JAVA5_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/
 export JAVA6_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/
 export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/ 
-export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/ 
+export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/ 
+export JAVA_HOME=$JAVA8_HOME
+
 export DEVELOPER_CONFIG=~/Development/workspaces/gitaries/developer_config
 export JBOSS_HOME=~/jboss
 export GRADLE_OPTS="-Xmx1024m -XX:MaxPermSize=128m"
@@ -109,3 +108,6 @@ source `brew --prefix`/etc/profile.d/z.sh
 #if [ -d "$GHC_DOT_APP" ]; then
 #    export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
 #fi
+export http_proxy="http://proxy.jx.availity.net:8080"
+export https_proxy="http://proxy.jx.availity.net:8080"
+export no_proxy="localhost,127.0.0.1,localaddress,.local,.availity.net,.availity.com"
