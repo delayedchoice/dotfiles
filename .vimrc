@@ -93,6 +93,7 @@ filetype plugin indent on
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor
 let g:paredit_mode=0
 " The Silver Searcher
+nnoremap <Leader>a :Ack!<Space>
 
 if executable('ag')
   "let g:ackprg = 'ag --vimgrep --smart-case'
