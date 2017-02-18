@@ -36,11 +36,11 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rizzatti/funcoo.vim'
-Plugin 'rking/ag.vim'
+"Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'shime/vim-livedown'
+"Plugin 'shime/vim-livedown'
 "Plugin 'Shougo/neocomplete'
 Plugin 'sickill/vim-pasta'
 Plugin 'sjbach/lusty'
@@ -66,6 +66,7 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vividchalk'
+Plugin 'tpope/vim-salve'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/SyntaxRange'
 "Plugin 'vim-scripts/paredit.vim'
@@ -73,6 +74,12 @@ Plugin 'wgibbs/vim-irblack'
 Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'ervandew/supertab.git'
+Plugin 'Shougo/vimproc.vim'
+"Plugin 'garbas/vim-snipmate'
+Plugin 'Shougo/neocomplete'
+Plugin 'diepm/vim-rest-console'
 call vundle#end()
 filetype plugin indent on
 
@@ -83,10 +90,13 @@ filetype plugin indent on
 "  \ 'file': '\.exe$\|\.so$\|\.dat$'
 "  \ }
 let g:paredit_mode=0
-
 " The Silver Searcher
+
 if executable('ag')
-  " Use ag over grep
+  "let g:ackprg = 'ag --vimgrep --smart-case'
+  nnoremap <Leader>a :Ack!<Space>
+  let g:ackprg = 'ag --vimgrep'
+  cnoreabbrev ag Ack
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
@@ -119,6 +129,7 @@ set showmatch                       " Show matching bracker
 set showcmd                         " Show command at bottom of screen
 set ignorecase                      " Ignore case when searching
 set smartcase                       " Override ignorecase when search string has upper case characters
+set smartindent
 set wildmenu                        " Enhanced command-line completion
 set wildmode=list:longest           " List all matches
 set cursorline                      " Highlight current line
@@ -140,11 +151,24 @@ set guioptions-=r                   " Remove scrollbar
 set guioptions-=T                   " Remove toolbar
 set guioptions+=e                   " Use GUI tabs
 set clipboard=unnamed               " Use system clipboard
+"set clipboard=unnamedplus,autoselect
 set pastetoggle=<F3>                " Key to toggle paste mode
 set gdefault                        " Set default to global
 set number                          " Show line numbers
 set nolist                          " Don't show $ at ends of lines
 set autoread                        " Automatically reload changed files
+" Set up Tests {{{
+set completeopt=menuone,menu,longest
+
+set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
+set wildmode=longest,list,full
+set wildmenu
+set completeopt+=longest
+
+set t_Co=256
+
+set cmdheight=1
+" }}}
 "set macmeta                         " Enable Option key for key bindings
 nmap ; :
 map ; :
@@ -266,11 +290,12 @@ augroup END
 " }}}
 " Easy Motion Settings {{{
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
 " Bi-directional find motion
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
-nmap s <Plug>(easymotion-s)
+map s <Plug>(easymotion-bd-f)
+nmap s <Plug>(easymotion-overwin-f)
+"nmap s <Plug>(easymotion-s)
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
@@ -301,7 +326,13 @@ nnoremap <leader>n :NERDTreeClose<CR>:NERDTreeToggle<CR>
 nnoremap <leader>m :NERDTreeClose<CR>:NERDTreeFind<CR>
 nnoremap <leader>N :NERDTreeClose<CR>
 " }}}
+" Haskell tab settings {{{
+let g:haskell_tabular = 1
 
+vmap a= :Tabularize /=<CR>
+vmap a; :Tabularize /::<CR>
+vmap a- :Tabularize /-><CR>
+" }}}
 " CtrlP settings {{{
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -319,9 +350,9 @@ augroup END
 " }}}
 
 " Tagbar settings {{{
-nnoremap <leader>l :TagbarToggle<cr><C-w>l
+"nnoremap <leader>l :TagbarToggle<cr><C-w>l
 "inoremap <leader>l :TagbarToggle<cr><C-w>l
-vnoremap <leader>l :TagbarToggle<cr><C-w>l
+"vnoremap <leader>l :TagbarToggle<cr><C-w>l
 
 let g:tagbar_type_objc = {
     \ 'ctagstype' : 'ObjectiveC',
@@ -362,21 +393,31 @@ let g:tagbar_type_objc = {
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 " }}}
+" Rainbow Parentheses settings {{{
+ let g:rbpt_colorpairs = [
+        \ ['blue',       '#CC00FF'],
+        \ ['cyan', '#FFFFFF'],
+        \ ['darkmagenta',    '#00FFFF'],
+        \ ['yellow',   '#FFFF00'],
+        \ ['red',     '#FF0000'],
+        \ ['darkgreen',    '#00FF00'],
+        \ ['White',         '#FF6000'],
+       \ ]
 
 " Rainbow Parentheses settings {{{
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
+"let g:rbpt_colorpairs = [
+"    \ ['brown',       'RoyalBlue3'],
+"    \ ['darkgray',    'DarkOrchid3'],
+"    \ ['darkgreen',   'firebrick3'],
+"    \ ['darkcyan',    'RoyalBlue3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['brown',       'firebrick3'],
+"    \ ['gray',        'RoyalBlue3'],
+"    \ ['Darkblue',    'firebrick3'],
+"    \ ['darkgreen',   'RoyalBlue3'],
+"    \ ['darkred',     'DarkOrchid3'],
+"    \ ['red',         'firebrick3'],
+"    \ ]
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
@@ -409,6 +450,18 @@ let g:user_emmet_leader_key='<c-z>'
 
 " Syntastic settings {{{
 let g:syntastic_c_checkers = ['cppcheck']
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+" }}}
+
+" GHC-Mod settings {{{
+map <silent> tw :GhcModTypeInsert<CR>
+map <silent> ts :GhcModSplitFunCase<CR>
+map <silent> tq :GhcModType<CR>
+map <silent> te :GhcModTypeClear<CR>
 " }}}
 
 " Buftabline settings {{{

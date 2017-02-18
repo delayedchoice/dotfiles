@@ -47,7 +47,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(brew catimg git git-extras git-flow git-prompt gitignore lein marked2 meteor node npm osx rvm sudo vim-interaction xcode zsh-syntax-highlighting)
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -98,12 +98,12 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/
 #export JAVA6_HOME=/Library/Java/Home
 export JAVA5_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/
 export JAVA6_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/
-export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/ 
-export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/ 
+export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/
+export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/
 export DEVELOPER_CONFIG=~/Development/workspaces/gitaries/developer_config
 export JBOSS_HOME=~/jboss
 export GRADLE_OPTS="-Xmx1024m -XX:MaxPermSize=128m"
-source `brew --prefix`/etc/profile.d/z.sh
+#source `brew --prefix`/etc/profile.d/z.sh
 # Add GHC 7.10.1 to the PATH, via https://ghcformacosx.github.io/
 #export GHC_DOT_APP="/Users/rharris/Applications/ghc-7.10.1.app"
 #if [ -d "$GHC_DOT_APP" ]; then
