@@ -81,6 +81,8 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/neocomplete'
 Plugin 'diepm/vim-rest-console'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'Valloric/YouCompleteMe'
+
 call vundle#end()
 filetype plugin indent on
 
