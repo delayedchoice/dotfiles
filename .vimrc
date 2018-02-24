@@ -5,6 +5,7 @@ set diffopt=vertical
 
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'clojure-vim/acid.nvim'
 Plugin 'kovisoft/slimv'
 Plugin 'Keithbsmiley/swift.vim'
 Plugin 'altercation/vim-colors-solarized'
@@ -12,7 +13,7 @@ Plugin 'ap/vim-buftabline'
 Plugin 'duff/vim-bufonly'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'elzr/vim-json'
+"Plugin 'elzr/vim-json'
 Plugin 'fatih/vim-go'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'godlygeek/tabular'
@@ -21,7 +22,7 @@ Plugin 'guns/vim-clojure-static'
 "Plugin 'haya14busa/incsearch.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'itspriddle/vim-marked'
-Plugin 'jaxbot/github-issues.vim'
+"Plugin 'jaxbot/github-issues.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim'
@@ -30,17 +31,18 @@ Plugin 'majutsushi/tagbar'
 Plugin 'mattn/emmet-vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'neilagabriel/vim-geeknote'
+"Plugin 'neilagabriel/vim-geeknote'
 Plugin 'nono/vim-handlebars'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rizzatti/funcoo.vim'
-Plugin 'rking/ag.vim'
+"Plugin 'rking/ag.vim'
+Plugin 'numkil/ag.nvim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'shime/vim-livedown'
+"Plugin 'shime/vim-livedown'
 "Plugin 'Shougo/neocomplete'
 Plugin 'sickill/vim-pasta'
 Plugin 'sjbach/lusty'
@@ -76,10 +78,31 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'diepm/vim-rest-console'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'mtth/scratch.vim'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
+"Plugin 'Valloric/YouCompleteMe'
+"Bundle 'Align.vim'
+"Bundle 'SQLUtilities'
 call vundle#end()
 filetype plugin indent on
 
 " }}}
+
+call plug#begin('~/.vim/plugged')
+" Make sure you use single quotes
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/heytmux'
+call plug#end()
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 "let g:ctrlp_custom_ignore = {
 "  \ 'dir':  'out$\|target$\|\.git$\|\.hg$\|\.svn$\|\.yardoc$',
@@ -99,7 +122,10 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
   nnoremap F :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+"  let g:ag_working_path_mode="r"
 endif
+"noremap <Leader>q q
+"noremap q <Nop>
 nnoremap Q :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " bind \ (backward slash) to grep shortcut
 "command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
@@ -125,7 +151,7 @@ set ignorecase                      " Ignore case when searching
 set smartcase                       " Override ignorecase when search string has upper case characters
 set wildmenu                        " Enhanced command-line completion
 set wildmode=list:longest           " List all matches
-set cursorline                      " Highlight current line
+set nocursorline                      " Highlight current linek
 set ttyfast                         " Fast terminal connection (faster redraw)
 set ruler                           " Show current line and column
 set hlsearch                        " Highlight current matches
@@ -143,7 +169,7 @@ set scrolloff=3                     " Minimum number of lines above/below cursor
 set guioptions-=r                   " Remove scrollbar
 set guioptions-=T                   " Remove toolbar
 set guioptions+=e                   " Use GUI tabs
-set clipboard=unnamed               " Use system clipboard
+set clipboard=unnamedplus               " Use system clipboard
 set pastetoggle=<F3>                " Key to toggle paste mode
 set gdefault                        " Set default to global
 set number                          " Show line numbers
@@ -392,7 +418,7 @@ let g:LustyJugglerSuppressRubyWarning = 1
 " }}}
 
 " GeekNote settings {{{
-nnoremap <leader>gn :Geeknote<cr>
+"nnoremap <leader>gn :Geeknote<cr>
 " }}}
 
 " incsearch settings {{{
@@ -471,6 +497,17 @@ let g:ctrlp_user_command = 'ag %s -l -nocolor -g .'
 let g:ctrlp_match_window = 'results:100' " overcome limit imposed by max height
 " bind K to grep word under cursor
 "nnoremap F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" Set the background theme to dark 
+set background = "dark" 
+" Call the theme one 
+"set colorscheme = "one"
+"(one is the name of color scheme) 
+" Don't forget set the airline theme as well. 
+let g:airline_theme = 'one' 
+" This line enables the true color support. 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1 
+" Note, the above line is ignored in Neovim 0.1.5 above, use this line instead. 
+set termguicolors
 " Lightline settings {{{
 let g:lightline = {
       \   'colorscheme': 'wombat',

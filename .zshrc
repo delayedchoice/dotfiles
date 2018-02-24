@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="nanotech"
 
 # Uncomment the following line to use case-sensitive completion.
-; CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -40,8 +40,11 @@ COMPLETION_WAITING_DOTS="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+#export PATH="$PATH:$HOME/Dev/brew/bin"
+#export PATH="$PATH:$HOME/Dev/brew/sbin"
+export PATH="$HOME/Dev/brew/sbin:$HOME/Dev/brew/bin:$PATH:"
+export HOMEBREW_NO_ANALYTICS=1.
+ #Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
@@ -51,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/bin:/Users/rharris/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/bin:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/bin:/Users/rharris/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/rharris/.gem/ruby/2.0.0/bin:$PATH"
 
 # Homebrew installed in home directory?
 if [ -d $HOME/homebrew ]; then
@@ -90,19 +93,20 @@ export GOPATH=$HOME/go
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export JAVA_OPTS="-Dapple.awt.UIElement=true"
+export JAVA_OPTS="-Dapple.awt.UIElement=true -DproxyHost=proxy.jx.availity.net -DproxyPort=8080"
 export _JAVA_OPTIONS=$JAVA_OPTS
 
-export JAVA5_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/
-export JAVA6_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/
-export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/ 
-export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/ 
+export JAVA5_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/
+export JAVA6_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/
+export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/
+export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/
 export JAVA_HOME=$JAVA8_HOME
 
-export DEVELOPER_CONFIG=~/Development/workspaces/gitaries/developer_config
+export DEVELOPER_CONFIG=~/Dev/workspaces/developer_config
 export JBOSS_HOME=~/jboss
 export GRADLE_OPTS="-Xmx1024m -XX:MaxPermSize=128m"
-source `brew --prefix`/etc/profile.d/z.sh
+#source `brew --prefix`/etc/profile.d/z.sh
+
 # Add GHC 7.10.1 to the PATH, via https://ghcformacosx.github.io/
 #export GHC_DOT_APP="/Users/rharris/Applications/ghc-7.10.1.app"
 #if [ -d "$GHC_DOT_APP" ]; then
@@ -110,4 +114,14 @@ source `brew --prefix`/etc/profile.d/z.sh
 #fi
 export http_proxy="http://proxy.jx.availity.net:8080"
 export https_proxy="http://proxy.jx.availity.net:8080"
-export no_proxy="localhost,127.0.0.1,localaddress,.local,.availity.net,.availity.com"
+export no_proxy="localhost,127.0.0.1,localaddress,.local,.availity.net,.availity.com, services.gradle.org"
+export HTTP_PROXY="http://proxy.jx.availity.net:8080"
+export HTTPS_PROXY="http://proxy.jx.availity.net:8080"
+export NO_PROXY="localhost,127.0.0.1,localaddress,.local,.availity.net,.availity.com, services.gradle.org"
+ffpath=(/Users/rharris/Dev/brew/share/zsh-completions $fpath)
+#export NVM_DIR="$HOME/.nvm"
+#"/Users/rharris/Dev/brew/opt/nvm/nvm.sh"
+
+export VISUAL=n
+export EDITOR="$VISUAL"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
