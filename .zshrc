@@ -51,7 +51,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/bin:/Users/rharris/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+#export PATH="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/bin:/Users/bobby/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="/Users/bobby/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
 # Homebrew installed in home directory?
 if [ -d $HOME/homebrew ]; then
@@ -90,16 +91,16 @@ export GOPATH=$HOME/go
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export JAVA_OPTS="-Dapple.awt.UIElement=true"
-export _JAVA_OPTIONS=$JAVA_OPTS
+#export JAVA_OPTS="-Dapple.awt.UIElement=true"
+#export _JAVA_OPTIONS=$JAVA_OPTS
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/
 #export JAVA5_HOME=/Library/Java/Home
 #export JAVA6_HOME=/Library/Java/Home
 export JAVA5_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/
 export JAVA6_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/
-export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/ 
-export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/ 
+export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/
+export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/
 export DEVELOPER_CONFIG=~/Development/workspaces/gitaries/developer_config
 export JBOSS_HOME=~/jboss
 export GRADLE_OPTS="-Xmx1024m -XX:MaxPermSize=128m"

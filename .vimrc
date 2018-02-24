@@ -100,7 +100,7 @@ nnoremap Q :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " bind \ (backward slash) to grep shortcut
 "command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
-nnoremap <leader>e :Eval<ENTER>
+nnoremap <leader>! :Eval<ENTER>
 " Basic settings {{{
 syntax on
 set modelines=0
