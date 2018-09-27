@@ -96,10 +96,10 @@ export GOPATH=$HOME/go
 export JAVA_OPTS="-Dapple.awt.UIElement=true -DproxyHost=proxy.jx.availity.net -DproxyPort=8080"
 export _JAVA_OPTIONS=$JAVA_OPTS
 
-export JAVA5_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/
-export JAVA6_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/
+export JAVA5_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/
+export JAVA6_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/
 export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/
-export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/
+export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/
 export JAVA_HOME=$JAVA8_HOME
 
 export DEVELOPER_CONFIG=~/Dev/workspaces/developer_config
@@ -125,3 +125,5 @@ ffpath=(/Users/rharris/Dev/brew/share/zsh-completions $fpath)
 export VISUAL=n
 export EDITOR="$VISUAL"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

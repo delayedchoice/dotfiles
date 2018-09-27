@@ -15,6 +15,7 @@ Plugin 'duff/vim-bufonly'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'elixir-lang/vim-elixir'
 "Plugin 'elzr/vim-json'
+Plugin 'leshill/vim-json'
 Plugin 'fatih/vim-go'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'godlygeek/tabular'
@@ -79,16 +80,19 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'diepm/vim-rest-console'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'mtth/scratch.vim'
-"Plugin 'SirVer/ultisnips'
-"Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'tomtom/tlib_vim'
+"Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 "Plugin 'Valloric/YouCompleteMe'
 "Bundle 'Align.vim'
 "Bundle 'SQLUtilities'
 call vundle#end()
 filetype plugin indent on
-
+"
 " }}}
-
+hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 "call plug#begin('~/.vim/plugged')
 "" Make sure you use single quotes
 "" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
@@ -120,7 +124,7 @@ let g:ctrlp_working_path_mode = 0
 "  \ }
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor
 let g:paredit_mode=0
-
+autocmd FileType javascript :UltiSnipsAddFiletypes js.html
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
@@ -490,7 +494,6 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
