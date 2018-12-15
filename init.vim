@@ -88,6 +88,9 @@ Plugin 'honza/vim-snippets'
 "Plugin 'Valloric/YouCompleteMe'
 "Bundle 'Align.vim'
 "Bundle 'SQLUtilities'
+Plugin 'mxw/vim-jsx'
+Plugin 'w0rp/ale'
+Plugin 'skywind3000/asyncrun.vim'
 call vundle#end()
 filetype plugin indent on
 "
@@ -107,6 +110,12 @@ let g:esearch = {
   \ 'batch_size': 1000,
   \ 'use':        ['visual', 'word_under_cursor', 'last'],
   \}
+let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning = '.'
+let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+
+let g:asyncrun_exit = 'e %'
+autocmd BufWritePost *.js AsyncRun eslint --fix %
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -450,10 +459,15 @@ let g:scratch_horizontal = 1
 " }}}
 
 
-" Emmet settings {{{
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,handlebars.html EmmetInstall
-let g:user_emmet_leader_key='<c-z>'
+" Emmet settings {{
+ let g:user_emmet_install_global = 1
+" autocmd FileType js,html,css EmmetInstall
+" let g:user_emmet_leader_key='<c z>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
 " }}}
 
 " Syntastic settings {{{

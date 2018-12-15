@@ -71,11 +71,11 @@ export GOPATH=$HOME/go
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -93,18 +93,8 @@ export GOPATH=$HOME/go
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export JAVA_OPTS="-Dapple.awt.UIElement=true -DproxyHost=proxy.jx.availity.net -DproxyPort=8080"
-export _JAVA_OPTIONS=$JAVA_OPTS
+export JAVA_HOME=/usr/lib/jvm/default-java
 
-export JAVA5_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/
-export JAVA6_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/
-export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/
-export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/
-export JAVA_HOME=$JAVA8_HOME
-
-export DEVELOPER_CONFIG=~/Dev/workspaces/developer_config
-export JBOSS_HOME=~/jboss
-export GRADLE_OPTS="-Xmx1024m -XX:MaxPermSize=128m"
 #source `brew --prefix`/etc/profile.d/z.sh
 
 # Add GHC 7.10.1 to the PATH, via https://ghcformacosx.github.io/
@@ -112,13 +102,6 @@ export GRADLE_OPTS="-Xmx1024m -XX:MaxPermSize=128m"
 #if [ -d "$GHC_DOT_APP" ]; then
 #    export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
 #fi
-export http_proxy="http://proxy.jx.availity.net:8080"
-export https_proxy="http://proxy.jx.availity.net:8080"
-export no_proxy="localhost,127.0.0.1,localaddress,.local,.availity.net,.availity.com, services.gradle.org"
-export HTTP_PROXY="http://proxy.jx.availity.net:8080"
-export HTTPS_PROXY="http://proxy.jx.availity.net:8080"
-export NO_PROXY="localhost,127.0.0.1,localaddress,.local,.availity.net,.availity.com, services.gradle.org"
-ffpath=(/Users/rharris/Dev/brew/share/zsh-completions $fpath)
 #export NVM_DIR="$HOME/.nvm"
 #"/Users/rharris/Dev/brew/opt/nvm/nvm.sh"
 
@@ -127,3 +110,5 @@ export EDITOR="$VISUAL"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+export ANDROID_SDK=/home/bobbyharris/Android/Sdk
+export PATH="$PATH:$HOME/bin:$ANDROID_SDK/platform-tools"
