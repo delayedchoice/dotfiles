@@ -42,7 +42,6 @@ COMPLETION_WAITING_DOTS="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 #export PATH="$PATH:$HOME/Dev/brew/bin"
 #export PATH="$PATH:$HOME/Dev/brew/sbin"
-export PATH="$HOME/Dev/brew/sbin:$HOME/Dev/brew/bin:$PATH:"
 export HOMEBREW_NO_ANALYTICS=1.
  #Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -55,6 +54,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH="/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/bin:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/bin:/Users/rharris/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/rharris/.gem/ruby/2.0.0/bin:$PATH"
+export PATH="$HOME/dev/brew/sbin:$HOME/dev/brew/bin:$PATH:"
 
 # Homebrew installed in home directory?
 if [ -d $HOME/homebrew ]; then
@@ -93,7 +93,8 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export JAVA_HOME=/usr/lib/jvm/default-java
+export JAVA_HOME=/home/bobbyharris/dev/brew/Cellar/openjdk/1.8.0-181/
+
 
 #source `brew --prefix`/etc/profile.d/z.sh
 
@@ -105,10 +106,14 @@ export JAVA_HOME=/usr/lib/jvm/default-java
 #export NVM_DIR="$HOME/.nvm"
 #"/Users/rharris/Dev/brew/opt/nvm/nvm.sh"
 
+function connect_adb() {
+	/home/bobbyharris/dev/android/sdk/platform-tools/adb connect 100.115.92.2:5555
+}
+
 export VISUAL=n
 export EDITOR="$VISUAL"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-export ANDROID_SDK=/home/bobbyharris/Android/Sdk
-export PATH="$PATH:$HOME/bin:$ANDROID_SDK/platform-tools"
+export ANDROID_HOME=/home/bobbyharris/dev/android/sdk
+export PATH="$PATH:$HOME/.yarn/bin:$HOME/bin:$ANDROID_HOME/platform-tools"

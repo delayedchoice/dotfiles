@@ -7,7 +7,7 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 "Plugin 'clojure-vim/acid.nvim'
 Plugin 'eugen0329/vim-esearch'
-Plugin 'kovisoft/slimv'
+"Plugin 'kovisoft/slimv'
 Plugin 'Keithbsmiley/swift.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ap/vim-buftabline'
