@@ -91,6 +91,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'mxw/vim-jsx'
 Plugin 'w0rp/ale'
 Plugin 'skywind3000/asyncrun.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 filetype plugin indent on
 "
@@ -535,6 +537,7 @@ let g:airline_theme = 'one'
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " Note, the above line is ignored in Neovim 0.1.5 above, use this line instead.
 set termguicolors
+colorscheme elflord
 " Lightline settings {{{
 let g:lightline = {
       \   'colorscheme': 'wombat',

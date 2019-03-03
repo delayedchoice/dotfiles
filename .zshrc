@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH="/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/bin:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/bin:/Users/rharris/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/rharris/.gem/ruby/2.0.0/bin:$PATH"
-export PATH="$HOME/dev/brew/sbin:$HOME/dev/brew/bin:$PATH:"
+#export PATH="$HOME/dev/brew/sbin:$HOME/dev/brew/bin:$PATH:"
 
 # Homebrew installed in home directory?
 if [ -d $HOME/homebrew ]; then
@@ -93,7 +93,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export JAVA_HOME=/home/bobbyharris/dev/brew/Cellar/openjdk/1.8.0-181/
+#export JAVA_HOME=/home/bobbyharris/dev/brew/Cellar/openjdk/1.8.0-181/
 
 
 #source `brew --prefix`/etc/profile.d/z.sh
@@ -110,10 +110,12 @@ function connect_adb() {
 	/home/bobbyharris/dev/android/sdk/platform-tools/adb connect 100.115.92.2:5555
 }
 
-export VISUAL=n
+export VISUAL="nvim"
 export EDITOR="$VISUAL"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 export ANDROID_HOME=/home/bobbyharris/dev/android/sdk
 export PATH="$PATH:$HOME/.yarn/bin:$HOME/bin:$ANDROID_HOME/platform-tools"
+eval "$(pyenv init -)"
+export TERM="xterm-256color"
