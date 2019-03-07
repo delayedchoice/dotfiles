@@ -53,9 +53,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/bin:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/bin:/Users/rharris/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/rharris/.gem/ruby/2.0.0/bin:$PATH"
-#export PATH="$HOME/dev/brew/sbin:$HOME/dev/brew/bin:$PATH:"
-
 # Homebrew installed in home directory?
 if [ -d $HOME/homebrew ]; then
   export PATH=$HOME/homebrew/bin:$PATH:$HOME/homebrew/opt/go/libexec/bin
@@ -76,35 +73,6 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='mvim'
 fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-#export JAVA_HOME=/home/bobbyharris/dev/brew/Cellar/openjdk/1.8.0-181/
-
-
-#source `brew --prefix`/etc/profile.d/z.sh
-
-# Add GHC 7.10.1 to the PATH, via https://ghcformacosx.github.io/
-#export GHC_DOT_APP="/Users/rharris/Applications/ghc-7.10.1.app"
-#if [ -d "$GHC_DOT_APP" ]; then
-#    export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
-#fi
-#export NVM_DIR="$HOME/.nvm"
-#"/Users/rharris/Dev/brew/opt/nvm/nvm.sh"
 
 function connect_adb() {
 	/home/bobbyharris/dev/android/sdk/platform-tools/adb connect 100.115.92.2:5555
