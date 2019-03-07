@@ -118,4 +118,4 @@ export NVM_DIR="$HOME/.nvm"
 export ANDROID_HOME=/home/bobbyharris/dev/android/sdk
 export PATH="$PATH:$HOME/.yarn/bin:$HOME/bin:$ANDROID_HOME/platform-tools"
 eval "$(pyenv init -)"
-export TERM="xterm-256color"
+export TERM="screen-256color"
