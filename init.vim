@@ -53,6 +53,9 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-classpath'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-salve'
+Plugin 'tpope/vim-projectionist'
+Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fireplace'
 "Plugin 'tpope/vim-flatfoot'
 Plugin 'tpope/vim-fugitive'
@@ -93,6 +96,7 @@ Plugin 'w0rp/ale'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'venantius/vim-cljfmt'
 call vundle#end()
 filetype plugin indent on
 "
@@ -697,3 +701,4 @@ let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
 " }}}
+
