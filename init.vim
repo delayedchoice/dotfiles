@@ -1,114 +1,84 @@
-" Load Vundle {{{
-"set nocompatible
-"filetype off
-"set diffopt=vertical
-
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-"Plugin 'clojure-vim/acid.nvim'
-Plugin 'eugen0329/vim-esearch'
-"Plugin 'kovisoft/slimv'
-Plugin 'Keithbsmiley/swift.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'ap/vim-buftabline'
-Plugin 'duff/vim-bufonly'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'elixir-lang/vim-elixir'
-"Plugin 'elzr/vim-json'
-Plugin 'leshill/vim-json'
-Plugin 'fatih/vim-go'
-Plugin 'gmarik/Vundle.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'groenewege/vim-less'
-Plugin 'guns/vim-clojure-static'
-"Plugin 'haya14busa/incsearch.vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'itspriddle/vim-marked'
-"Plugin 'jaxbot/github-issues.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'kien/ctrlp.vim'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'majutsushi/tagbar'
-"Plugin 'marijnh/tern_for_vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'nanotech/jellybeans.vim'
-"Plugin 'neilagabriel/vim-geeknote'
-Plugin 'nono/vim-handlebars'
-Plugin 'pangloss/vim-javascript'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'rizzatti/dash.vim'
-Plugin 'rizzatti/funcoo.vim'
-"Plugin 'rking/ag.vim'
-Plugin 'numkil/ag.nvim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-"Plugin 'shime/vim-livedown'
-"Plugin 'Shougo/neocomplete'
-Plugin 'sickill/vim-pasta'
-Plugin 'sjbach/lusty'
-Plugin 'therubymug/vim-pyte'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-classpath'
-Plugin 'tpope/vim-cucumber'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-salve'
-Plugin 'tpope/vim-projectionist'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-fireplace'
-"Plugin 'tpope/vim-flatfoot'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-leiningen'
-Plugin 'tpope/vim-ragtag'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-eunuch'
-Plugin 'guns/vim-sexp'
-Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-vividchalk'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'vim-scripts/SyntaxRange'
-"Plugin 'vim-scripts/paredit.vim'
-Plugin 'wgibbs/vim-irblack'
-Plugin 'xolox/vim-easytags'
-Plugin 'xolox/vim-misc'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'diepm/vim-rest-console'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'mtth/scratch.vim'
-Plugin 'SirVer/ultisnips'
-"Plugin 'MarcWeber/vim-addon-mw-utils'
-"Plugin 'tomtom/tlib_vim'
-"Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-"Plugin 'Valloric/YouCompleteMe'
-"Bundle 'Align.vim'
-"Bundle 'SQLUtilities'
-Plugin 'mxw/vim-jsx'
-Plugin 'w0rp/ale'
-Plugin 'skywind3000/asyncrun.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'venantius/vim-cljfmt'
-call vundle#end()
+call plug#begin()
+Plug 'clojure-vim/async-clj-omni'
+Plug 'eugen0329/vim-esearch'
+Plug 'Keithbsmiley/swift.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'ap/vim-buftabline'
+Plug 'duff/vim-bufonly'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'leshill/vim-json'
+Plug 'fatih/vim-go'
+Plug 'gmarik/Vundle.vim'
+Plug 'godlygeek/tabular'
+Plug 'groenewege/vim-less'
+Plug 'guns/vim-clojure-static'
+Plug 'itchyny/lightline.vim'
+Plug 'itspriddle/vim-marked'
+Plug 'kchmck/vim-coffee-script'
+Plug 'kien/ctrlp.vim'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'majutsushi/tagbar'
+Plug 'mattn/emmet-vim'
+Plug 'mileszs/ack.vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'nono/vim-handlebars'
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+Plug 'rizzatti/dash.vim'
+Plug 'rizzatti/funcoo.vim'
+Plug 'numkil/ag.nvim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'sickill/vim-pasta'
+Plug 'sjbach/lusty'
+Plug 'therubymug/vim-pyte'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-classpath'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-salve'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-dispatch'
+Plug 'Olical/conjure' , { 'tag': 'v2.1.2', 'do': 'bin/compile'  }
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-leiningen'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vividchalk'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/SyntaxRange'
+Plug 'wgibbs/vim-irblack'
+Plug 'xolox/vim-misc'
+Plug 'easymotion/vim-easymotion'
+Plug 'diepm/vim-rest-console'
+Plug 'tomtom/tcomment_vim'
+Plug 'mtth/scratch.vim'
+Plug 'mxw/vim-jsx'
+Plug 'w0rp/ale'
+Plug 'skywind3000/asyncrun.vim'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'venantius/vim-cljfmt'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'venantius/vim-cljfmt'
+call plug#end()
 filetype plugin indent on
 "
 " }}}
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-"call plug#begin('~/.vim/plugged')
-"" Make sure you use single quotes
-"" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-"Plug 'junegunn/heytmux'
-"call plug#end()
-" Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
 let g:esearch = {
   \ 'adapter':    'ag',
   \ 'backend':    'nvim',
@@ -116,6 +86,9 @@ let g:esearch = {
   \ 'batch_size': 1000,
   \ 'use':        ['visual', 'word_under_cursor', 'last'],
   \}
+let g:ale_linters = {
+      \ 'clojure': ['clj-kondo', 'joker']
+      \}
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
@@ -123,23 +96,11 @@ let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:asyncrun_exit = 'e %'
 autocmd BufWritePost *.js AsyncRun eslint --fix %
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
 let g:ctrlp_working_path_mode = 0
-"let g:ctrlp_custom_ignore = {
-"  \ 'dir':  'out$\|target$\|\.git$\|\.hg$\|\.svn$\|\.yardoc$',
-"  \ 'file': '\.exe$\|\.so$\|\.dat$'
-"  \ }
+
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor
 let g:paredit_mode=0
-autocmd FileType javascript :UltiSnipsAddFiletypes js.html
+
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
@@ -153,13 +114,7 @@ if executable('ag')
   nnoremap F :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
 "  let g:ag_working_path_mode="r"
 endif
-"noremap <Leader>q q
-"noremap q <Nop>
-nnoremap Q :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-" bind \ (backward slash) to grep shortcut
-"command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
-nnoremap <leader>e :Eval<ENTER>
+nnoremap Q q
 " Basic settings {{{
 syntax on
 set modelines=0
@@ -204,7 +159,7 @@ set gdefault                        " Set default to global
 set number                          " Show line numbers
 set nolist                          " Don't show $ at ends of lines
 set autoread                        " Automatically reload changed files
-"set macmeta                         " Enable Option key for key bindings
+set noshowmode
 nmap ; :
 map ; :
 " Set up GUI options
@@ -236,8 +191,6 @@ nnoremap <silent> <leader>/ :nohlsearch<cr>
 cnoremap w!! w !sudo tee % >/dev/null
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 nnoremap <leader>v V`]
-"nnoremap <leader>vs <C-w>v<C-w>l
-"nnoremap <leader>hs <C-w>s<C-w>j
 nnoremap <leader>- yyp<esc>:s/./-/<cr>:nohlsearch<cr>
 nnoremap <leader>= yyp<esc>:s/./=/<cr>:nohlsearch<cr>
 nnoremap <C-h> <C-w>h
@@ -518,9 +471,6 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
@@ -528,15 +478,13 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " }}}
 let g:ctrlp_user_command = 'ag %s -l -nocolor -g .'
 let g:ctrlp_match_window = 'results:100' " overcome limit imposed by max height
-" bind K to grep word under cursor
-"nnoremap F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " Set the background theme to dark
 set background = "dark"
 " Call the theme one
 "set colorscheme = "one"
 "(one is the name of color scheme)
 " Don't forget set the airline theme as well.
-"let g:airline_theme = 'one'
+let g:airline_theme = 'dark'
 " This line enables the true color support.
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " Note, the above line is ignored in Neovim 0.1.5 above, use this line instead.
@@ -702,3 +650,26 @@ let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
 " }}}
 
+call deoplete#custom#option('keyword_patterns', {'clojure': '[\w!$%&*+/:<=>?@\^_~\-\.#]*'})
+let g:deoplete#enable_at_startup = 1
+set completeopt-=preview
+
+let g:float_preview#docked = 0
+let g:float_preview#max_width = 80
+let g:float_preview#max_height = 40
+
+"{{{
+let g:conjure_nmap_eval_word = '<leader>ew'
+let g:conjure_nmap_eval_current_form = '<leader>ei'
+let g:conjure_vmap_eval_selection = '<leader>e'
+let g:conjure_nmap_eval_root_form = '<leader>eo'
+let g:conjure_nmap_eval_buffer = '<leader>eb'
+let g:conjure_nmap_source = '<leader>ss'
+let g:conjure_nmap_definition = '<leader>gd'
+let g:conjure_nmap_toggle_log = '<leader>tl'
+let g:conjure_nmap_run_tests =  '<leader>rt'
+let g:conjure_log_direction = "horizontal"
+let g:conjure_log_blacklist = ["up", "ret", "ret-multiline", "load-file", "eval"]
+let g:conjure_quick_doc_normal_mode = v:false
+
+"}}}
