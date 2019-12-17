@@ -47,21 +47,22 @@ export HOMEBREW_NO_ANALYTICS=1.
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew catimg git git-extras git-flow git-prompt gitignore lein marked2 meteor node npm osx rvm sudo vim-interaction xcode zsh-syntax-highlighting)
+#plugins=(catimg git git-extras git-flow git-prompt gitignore lein marked2 meteor node npm osx rvm sudo vim-interaction xcode zsh-syntax-highlighting)
+plugins=(catimg git git-extras git-flow git-prompt gitignore lein marked2 meteor node npm osx rvm sudo vim-interaction xcode zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # Homebrew installed in home directory?
-if [ -d $HOME/homebrew ]; then
-  export PATH=$HOME/homebrew/bin:$PATH:$HOME/homebrew/opt/go/libexec/bin
-else
-  export PATH=$PATH:/usr/local/opt/go/libexec/bin
-fi
-
-export GOPATH=$HOME/go
-
+#if [ -d $HOME/homebrew ]; then
+#  export PATH=$HOME/homebrew/bin:$PATH:$HOME/homebrew/opt/go/libexec/bin
+#else
+#  export PATH=$PATH:/usr/local/opt/go/libexec/bin
+#fi
+#
+#export GOPATH=$HOME/go
+#
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -71,19 +72,22 @@ export GOPATH=$HOME/go
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nvim'
 fi
 
-function connect_adb() {
-	/home/bobbyharris/dev/android/sdk/platform-tools/adb connect 100.115.92.2:5555
-}
+#function connect_adb() {
+#	/home/bobbyharris/dev/android/sdk/platform-tools/adb connect 100.115.92.2:5555
+#}
 
 export VISUAL="nvim"
-export EDITOR="$VISUAL"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-export ANDROID_HOME=/home/bobbyharris/dev/android/sdk
-export PATH="$PATH:$HOME/.yarn/bin:$HOME/bin:$ANDROID_HOME/platform-tools"
+#export EDITOR="$VISUAL"
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+#export ANDROID_HOME=/home/bobbyharris/dev/android/sdk
+#export PATH="$PATH:$HOME/.yarn/bin:$HOME/bin:$ANDROID_HOME/platform-tools"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$HOME/bin:$HOME/.jenv/bin:$PYENV_ROOT/bin:$PATH:/usr/local/cuda-10.0/bin"
+export LD_LIBRARY_PATH="/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH"
 eval "$(pyenv init -)"
-export TERM="screen-256color"
+#export TERM="screen-256color"

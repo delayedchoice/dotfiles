@@ -489,7 +489,7 @@ let g:airline_theme = 'dark'
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " Note, the above line is ignored in Neovim 0.1.5 above, use this line instead.
 set termguicolors
-colorscheme elflord
+"colorscheme elflord
 " Lightline settings {{{
 let g:lightline = {
       \   'colorscheme': 'wombat',
