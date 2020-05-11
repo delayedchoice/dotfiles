@@ -41,7 +41,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-salve'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
-Plug 'Olical/conjure' , { 'tag': 'v2.1.2', 'do': 'bin/compile'  }
+"Plug 'Olical/conjure' , { 'tag': 'v2.1.2', 'do': 'bin/compile'  }
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
@@ -72,8 +72,12 @@ Plug 'skywind3000/asyncrun.vim'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 "Plug 'venantius/vim-cljfmt'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'venantius/vim-cljfmt'
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+Plug 'jalvesaq/Nvim-R'
+Plug 'chrisbra/csv.vim'
 call plug#end()
 filetype plugin indent on
 "
@@ -650,17 +654,20 @@ let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
 " }}}
 
-call deoplete#custom#option('keyword_patterns', {'clojure': '[\w!$%&*+/:<=>?@\^_~\-\.#]*'})
-let g:deoplete#enable_at_startup = 1
-set completeopt-=preview
+"call deoplete#custom#option('keyword_patterns', {'clojure': '[\w!$%&*+/:<=>?@\^_~\-\.#]*'})
+"let g:deoplete#enable_at_startup = 1
+"set completeopt-=preview
 
 let g:float_preview#docked = 0
 let g:float_preview#max_width = 80
 let g:float_preview#max_height = 40
 
+nmap , <Plug>RDSendLine
+vmap , <Plug>RDSendSelection
+vmap ,e <Plug>RESendSelection
 "{{{
 let g:conjure_nmap_eval_word = '<leader>ew'
-let g:conjure_nmap_eval_current_form = '<leader>ei'
+let g:conjure_nmap_eval_current_form = '<leader>ef'
 let g:conjure_vmap_eval_selection = '<leader>e'
 let g:conjure_nmap_eval_root_form = '<leader>eo'
 let g:conjure_nmap_eval_buffer = '<leader>eb'
