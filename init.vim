@@ -1,39 +1,23 @@
 call plug#begin()
 Plug 'clojure-vim/async-clj-omni'
 Plug 'eugen0329/vim-esearch'
-Plug 'Keithbsmiley/swift.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'ap/vim-buftabline'
-Plug 'duff/vim-bufonly'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'elixir-lang/vim-elixir'
+"Plug 'ap/vim-buftabline'
+"Plug 'duff/vim-bufonly'
+"Plug 'editorconfig/editorconfig-vim'
 Plug 'leshill/vim-json'
-Plug 'fatih/vim-go'
-Plug 'gmarik/Vundle.vim'
 Plug 'godlygeek/tabular'
-Plug 'groenewege/vim-less'
 Plug 'guns/vim-clojure-static'
 Plug 'itchyny/lightline.vim'
-Plug 'itspriddle/vim-marked'
-Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'majutsushi/tagbar'
-Plug 'mattn/emmet-vim'
-Plug 'mileszs/ack.vim'
-Plug 'nanotech/jellybeans.vim'
-Plug 'nono/vim-handlebars'
+"Plug 'mileszs/ack.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
-Plug 'rizzatti/dash.vim'
-Plug 'rizzatti/funcoo.vim'
-Plug 'numkil/ag.nvim'
-Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 Plug 'sickill/vim-pasta'
 Plug 'sjbach/lusty'
-Plug 'therubymug/vim-pyte'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-classpath'
 Plug 'tpope/vim-cucumber'
@@ -41,7 +25,6 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-salve'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
-"Plug 'Olical/conjure' , { 'tag': 'v2.1.2', 'do': 'bin/compile'  }
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
@@ -63,22 +46,16 @@ Plug 'vim-scripts/SyntaxRange'
 Plug 'wgibbs/vim-irblack'
 Plug 'xolox/vim-misc'
 Plug 'easymotion/vim-easymotion'
-Plug 'diepm/vim-rest-console'
 Plug 'tomtom/tcomment_vim'
-Plug 'mtth/scratch.vim'
 Plug 'mxw/vim-jsx'
-Plug 'w0rp/ale'
-Plug 'skywind3000/asyncrun.vim'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-"Plug 'venantius/vim-cljfmt'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'w0rp/ale'
 Plug 'venantius/vim-cljfmt'
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
 Plug 'jalvesaq/Nvim-R'
 Plug 'chrisbra/csv.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = ['coc-pairs', 'coc-snippets', 'coc-eslint', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier',  'coc-yank']
 call plug#end()
+set diffopt+=vertical
 filetype plugin indent on
 "
 " }}}
@@ -90,15 +67,15 @@ let g:esearch = {
   \ 'batch_size': 1000,
   \ 'use':        ['visual', 'word_under_cursor', 'last'],
   \}
-let g:ale_linters = {
-      \ 'clojure': ['clj-kondo', 'joker']
-      \}
-let g:ale_sign_error = '●' " Less aggressive than the default '>>'
-let g:ale_sign_warning = '.'
-let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
-
-let g:asyncrun_exit = 'e %'
-autocmd BufWritePost *.js AsyncRun eslint --fix %
+"let g:ale_linters = {
+"      \ 'clojure': ['clj-kondo', 'joker']
+"      \}
+"let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+"let g:ale_sign_warning = '.'
+"let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+"
+"let g:asyncrun_exit = 'e %'
+"autocmd BufWritePost *.js AsyncRun eslint --fix %
 
 let g:ctrlp_working_path_mode = 0
 
@@ -164,18 +141,18 @@ set number                          " Show line numbers
 set nolist                          " Don't show $ at ends of lines
 set autoread                        " Automatically reload changed files
 set noshowmode
-nmap ; :
-map ; :
+"nmap ; :
+"map ; :
 " Set up GUI options
-if has("gui_running")
-  :set columns=120 lines=70
-  if has("gui_gtk2")
-    :set guifont=Source\ Code\ Pro\ for\ Powerline\ 18
-  else
-    :set guifont=Source\ Code\ Pro\ for\ Powerline:h18
-  endif
-endif
-nnoremap Q <nop>                    " Turn off Ex mode
+"if has("gui_running")
+"  :set columns=120 lines=70
+"  if has("gui_gtk2")
+"    :set guifont=Source\ Code\ Pro\ for\ Powerline\ 18
+"  else
+"    :set guifont=Source\ Code\ Pro\ for\ Powerline:h18
+"  endif
+"endif
+"nnoremap Q <nop>                    " Turn off Ex mode
 " }}}
 
 " Leader settings {{{
@@ -186,7 +163,7 @@ let maplocalleader = "\\"
 " Various mappings {{{
 nnoremap / /\v
 vnoremap / /\v
-nnoremap ; :
+"nnoremap ; :
 nnoremap j gj
 nnoremap k gk
 nnoremap <tab> %
@@ -225,21 +202,21 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " Buffer settings {{{
 " New buffer
-nnoremap <M-t> :enew<cr>
-" Next buffer
-nnoremap <M-l> :bnext<cr>
-" Previous buffer
-nnoremap <M-h> :bprevious<cr>
-" Close current buffer and move to previous buffer
-nnoremap <leader>bq :bp <bar> bd #<cr>
-" }}}
+"nnoremap <M-t> :enew<cr>
+"" Next buffer
+"nnoremap <M-l> :bnext<cr>
+"" Previous buffer
+"nnoremap <M-h> :bprevious<cr>
+"" Close current buffer and move to previous buffer
+"nnoremap <leader>bq :bp <bar> bd #<cr>
+"" }}}
 
 " Operator Pending mappings {{{
-onoremap p i(
-onoremap in( :<c-u>normal! f(vi(<cr>
-onoremap il( :<c-u>normal! F)vi(<cr>
-onoremap in{ :<c-u>normal! f{vi{<cr>
-onoremap il{ :<c-u>normal! F}vi{<cr>
+"onoremap p i(
+"onoremap in( :<c-u>normal! f(vi(<cr>
+"onoremap il( :<c-u>normal! F)vi(<cr>
+"onoremap in{ :<c-u>normal! f{vi{<cr>
+"onoremap il{ :<c-u>normal! F}vi{<cr>
 " }}}
 
 " Focus Lost settings ---------------------- {{{
@@ -250,7 +227,7 @@ augroup END
 " }}}
 
 " Source .vimrc on save ---------------------- {{{
-autocmd! bufwritepost .vimrc source $MYVIMRC
+"autocmd! bufwritepost .vimrc source $MYVIMRC
 " }}}
 
 " JavaScript file settings {{{
@@ -269,17 +246,6 @@ augroup html
 augroup end
 "}}}
 
-" Vimscript file settings {{{
-augroup filetype_vim
-  autocmd!
-  autocmd FileType vim setlocal foldmethod=marker
-augroup END
-" }}}
-
-" Abbreviations {{{
-:iabbrev ot to
-:iabbrev em rwarner@grailbox.com
-" }}}
 " Easy Motion Settings {{{
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
@@ -296,26 +262,21 @@ nmap s <Plug>(easymotion-s)
 let g:EasyMotion_smartcase = 1
 
 " JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-
-" }}}
-" Corona SDK settings {{{
-nnoremap <leader>rc :!/Applications/CoronaSDK/simulator -project %:p -skin iPhone<cr>
-nnoremap <leader>rC :!/Applications/CoronaSDK/simulator -project %:p -skin iPad<cr>
-" }}}
+"map <Leader>j <Plug>(easymotion-j)
+"map <Leader>k <Plug>(easymotion-k)
 
 " NERDTree settings {{{
-let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks")
-let NERDTreeShowBookmarks=1
-let NERDTreeShowFiles=1
-let NERDTreeShowHidden=1
-let NERDTreeQuitOnOpen=0
-let NERDTreeHighlightCursorline=1
-let NERDTreeMouseMode=2
-nnoremap <leader>n :NERDTreeClose<CR>:NERDTreeToggle<CR>
-nnoremap <leader>m :NERDTreeClose<CR>:NERDTreeFind<CR>
-nnoremap <leader>N :NERDTreeClose<CR>
+"let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks")
+"let NERDTreeShowBookmarks=0
+"let NERDTreeShowFiles=1
+"let NERDTreeShowHidden=1
+"let NERDTreeQuitOnOpen=1
+"let NERDTreeHighlightCursorline=1
+"let NERDTreeMouseMode=2
+"let NERDTreeMinimalUI=1
+"nnoremap <leader>n :NERDTreeClose<CR>:NERDTreeToggle<CR>
+"nnoremap <leader>m :NERDTreeClose<CR>:NERDTreeFind<CR>
+"nnoremap <leader>N :NERDTreeClose<CR>
 " }}}
 
 " CtrlP settings {{{
@@ -326,58 +287,58 @@ nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>o :CtrlP<cr>
 " }}}
 
-" vim-json settings {{{
-let g:vim_json_syntax_conceal = 0
-augroup filetype_json
-  autocmd!
-  autocmd FileType json setlocal foldmethod=syntax
-augroup END
-" }}}
+"  vim-json settings {{{
+"let g:vim_json_syntax_conceal = 0
+"augroup filetype_json
+"  autocmd!
+"  autocmd FileType json setlocal foldmethod=syntax
+"augroup END
+"" }}}
 
 " Tagbar settings {{{
 "nnoremap <leader>l :TagbarToggle<cr><C-w>l
 "inoremap <leader>l :TagbarToggle<cr><C-w>l
 "vnoremap <leader>l :TagbarToggle<cr><C-w>l
 
-let g:tagbar_type_objc = {
-    \ 'ctagstype' : 'ObjectiveC',
-    \ 'kinds'     : [
-        \ 'i:interface',
-        \ 'I:implementation',
-        \ 'p:Protocol',
-        \ 'm:Object_method',
-        \ 'c:Class_method',
-        \ 'v:Global_variable',
-        \ 'F:Object field',
-        \ 'f:function',
-        \ 'p:property',
-        \ 't:type_alias',
-        \ 's:type_structure',
-        \ 'e:enumeration',
-        \ 'M:preprocessor_macro',
-    \ ],
-    \ 'sro'        : ' ',
-    \ 'kind2scope' : {
-        \ 'i' : 'interface',
-        \ 'I' : 'implementation',
-        \ 'p' : 'Protocol',
-        \ 's' : 'type_structure',
-        \ 'e' : 'enumeration'
-    \ },
-    \ 'scope2kind' : {
-        \ 'interface'      : 'i',
-        \ 'implementation' : 'I',
-        \ 'Protocol'       : 'p',
-        \ 'type_structure' : 's',
-        \ 'enumeration'    : 'e'
-    \ }
-\ }
-" }}}
-
-" Latex-Suite settings {{{
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor='latex'
-" }}}
+" let g:tagbar_type_objc = {
+"     \ 'ctagstype' : 'ObjectiveC',
+"     \ 'kinds'     : [
+"         \ 'i:interface',
+"         \ 'I:implementation',
+"         \ 'p:Protocol',
+"         \ 'm:Object_method',
+"         \ 'c:Class_method',
+"         \ 'v:Global_variable',
+"         \ 'F:Object field',
+"         \ 'f:function',
+"         \ 'p:property',
+"         \ 't:type_alias',
+"         \ 's:type_structure',
+"         \ 'e:enumeration',
+"         \ 'M:preprocessor_macro',
+"     \ ],
+"     \ 'sro'        : ' ',
+"     \ 'kind2scope' : {
+"         \ 'i' : 'interface',
+"         \ 'I' : 'implementation',
+"         \ 'p' : 'Protocol',
+"         \ 's' : 'type_structure',
+"         \ 'e' : 'enumeration'
+"     \ },
+"     \ 'scope2kind' : {
+"         \ 'interface'      : 'i',
+"         \ 'implementation' : 'I',
+"         \ 'Protocol'       : 'p',
+"         \ 'type_structure' : 's',
+"         \ 'enumeration'    : 'e'
+"     \ }
+" \ }
+" " }}}
+" 
+"  Latex-Suite settings {{{
+"set grepprg=grep\ -nH\ $*
+"let g:tex_flavor='latex'
+"" }}}
 
 " Rainbow Parentheses settings {{{
 let g:rbpt_colorpairs = [
@@ -413,35 +374,35 @@ let g:LustyJugglerSuppressRubyWarning = 1
 "map g/ <Plug>(incsearch-stay)
 " }}}
 
-" Livedown settings {{{
-let g:livedown_autorun = 1
-" }}}
+"  Livedown settings {{{
+"let g:livedown_autorun = 1
+"" }}}
 
 " Scratch settings {{{
-let g:scratch_horizontal = 1
+"let g:scratch_horizontal = 1
 " }}}
 
 
-" Emmet settings {{
- let g:user_emmet_install_global = 1
-" autocmd FileType js,html,css EmmetInstall
-" let g:user_emmet_leader_key='<c z>'
-let g:user_emmet_settings = {
-  \  'javascript.jsx' : {
-    \      'extends' : 'jsx',
-    \  },
-  \}
-" }}}
+"  Emmet settings {{
+" let g:user_emmet_install_global = 1
+"" autocmd FileType js,html,css EmmetInstall
+"" let g:user_emmet_leader_key='<c z>'
+"let g:user_emmet_settings = {
+"  \  'javascript.jsx' : {
+"    \      'extends' : 'jsx',
+"    \  },
+"  \}
+"" }}}
 
 " Syntastic settings {{{
-let g:syntastic_c_checkers = ['cppcheck']
+"let g:syntastic_c_checkers = ['cppcheck']
 " }}}
 
-" Buftabline settings {{{
-let g:buftabline_indicators = 1
-let g:buftabline_separators = 1
-highlight default link BufTabLineActive TabLineSel
-highlight default link BufTabLineCurrent PmenuSel
+"  Buftabline settings {{{
+"let g:buftabline_indicators = 1
+"let g:buftabline_separators = 1
+"highlight default link BufTabLineActive TabLineSel
+"highlight default link BufTabLineCurrent PmenuSel
 " }}}
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
@@ -466,19 +427,19 @@ highlight default link BufTabLineCurrent PmenuSel
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" " Enable heavy omni completion.
+" if !exists('g:neocomplete#sources#omni#input_patterns')
+"   let g:neocomplete#sources#omni#input_patterns = {}
+" endif
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " }}}
 let g:ctrlp_user_command = 'ag %s -l -nocolor -g .'
 let g:ctrlp_match_window = 'results:100' " overcome limit imposed by max height
@@ -493,15 +454,33 @@ let g:airline_theme = 'dark'
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " Note, the above line is ignored in Neovim 0.1.5 above, use this line instead.
 set termguicolors
-"colorscheme elflord
+colorscheme elflord
 " Lightline settings {{{
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
+function! StatusDiagnostic() abort
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) | return '' | endif
+  let msgs = []
+  if get(info, 'error', 0)
+    call add(msgs, 'E' . info['error'])
+  endif
+  if get(info, 'warning', 0)
+    call add(msgs, 'W' . info['warning'])
+  endif
+  return join(msgs, ' '). ' ' . get(g:, 'coc_status', '')
+endfunction
+
 let g:lightline = {
       \   'colorscheme': 'wombat',
       \   'active': {
       \     'left': [
       \       [ 'mode', 'paste' ],
       \       [ 'fugitive', 'filename' ],
-      \       [ 'ctrlpmark' ]
+      \       [ 'ctrlpmark' ],
+      \       [ 'cocstatus', 'currentfunction']
       \     ],
       \     'right': [
       \       [ 'syntastic', 'lineinfo' ],
@@ -518,6 +497,9 @@ let g:lightline = {
       \     'filetype'    : 'MyFiletype',
       \     'fileencoding': 'MyFileencoding',
       \     'mode'        : 'MyMode',
+      \     'gitbranch': 'fugitive#head',
+      \     'cocstatus': 'coc#status',
+      \     'currentfunction': 'StatusDiagnostic',
       \     'ctrlpmark'   : 'CtrlPMark'
       \   },
       \   'component_expand': {
@@ -635,48 +617,178 @@ endfunction
 
 let g:tagbar_status_func = 'TagbarStatusFunc'
 
-function! TagbarStatusFunc(current, sort, fname, ...) abort
-    let g:lightline.fname = a:fname
-  return lightline#statusline(0)
-endfunction
+" function! TagbarStatusFunc(current, sort, fname, ...) abort
+"     let g:lightline.fname = a:fname
+"   return lightline#statusline(0)
+" endfunction
 
-augroup AutoSyntastic
-  autocmd!
-  autocmd BufWritePost *.c,*.cpp call s:syntastic()
-augroup END
-function! s:syntastic()
-  SyntasticCheck
-  call lightline#update()
-endfunction
+" augroup AutoSyntastic
+"   autocmd!
+"   autocmd BufWritePost *.c,*.cpp call s:syntastic()
+" augroup END
+" function! s:syntastic()
+"   SyntasticCheck
+"   call lightline#update()
+" endfunction
 
-let g:unite_force_overwrite_statusline = 0
-let g:vimfiler_force_overwrite_statusline = 0
-let g:vimshell_force_overwrite_statusline = 0
+"let g:unite_force_overwrite_statusline = 0
+"let g:vimfiler_force_overwrite_statusline = 0
+"let g:vimshell_force_overwrite_statusline = 0
 " }}}
 
 "call deoplete#custom#option('keyword_patterns', {'clojure': '[\w!$%&*+/:<=>?@\^_~\-\.#]*'})
 "let g:deoplete#enable_at_startup = 1
 "set completeopt-=preview
 
-let g:float_preview#docked = 0
-let g:float_preview#max_width = 80
-let g:float_preview#max_height = 40
+" let g:float_preview#docked = 0
+" let g:float_preview#max_width = 80
+" let g:float_preview#max_height = 40
 
-nmap , <Plug>RDSendLine
-vmap , <Plug>RDSendSelection
-vmap ,e <Plug>RESendSelection
-"{{{
-let g:conjure_nmap_eval_word = '<leader>ew'
-let g:conjure_nmap_eval_current_form = '<leader>ef'
-let g:conjure_vmap_eval_selection = '<leader>e'
-let g:conjure_nmap_eval_root_form = '<leader>eo'
-let g:conjure_nmap_eval_buffer = '<leader>eb'
-let g:conjure_nmap_source = '<leader>ss'
-let g:conjure_nmap_definition = '<leader>gd'
-let g:conjure_nmap_toggle_log = '<leader>tl'
-let g:conjure_nmap_run_tests =  '<leader>rt'
-let g:conjure_log_direction = "horizontal"
-let g:conjure_log_blacklist = ["up", "ret", "ret-multiline", "load-file", "eval"]
-let g:conjure_quick_doc_normal_mode = v:false
+"nmap , <Plug>RDSendLine
+"vmap , <Plug>RDSendSelection
+"vmap ,e <Plug>RESendSelection
+" {{{
+" TextEdit might fail if hidden is not set.
+set hidden
 
-"}}}
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Give more space for displaying messages.
+set cmdheight=4
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+"set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+"inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<TAB>" :
+"      \ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"
+"function! s:check_back_space() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+"autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+" command! -nargs=0 Format :call CocAction('format')
+" 
+" " Add `:Fold` command to fold current buffer.
+" command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+" 
+" " Add `:OR` command for organize imports of the current buffer.
+" command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Mappings using CoCList:
+" Show all diagnostics.
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" }}}
