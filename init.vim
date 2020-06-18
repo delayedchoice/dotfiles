@@ -53,7 +53,7 @@ Plug 'venantius/vim-cljfmt'
 Plug 'jalvesaq/Nvim-R'
 Plug 'chrisbra/csv.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-pairs', 'coc-snippets', 'coc-eslint', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier',  'coc-yank']
+let g:coc_global_extensions = ['coc-rls', 'coc-pairs', 'coc-snippets', 'coc-eslint', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier',  'coc-yank']
 call plug#end()
 set diffopt+=vertical
 filetype plugin indent on
@@ -660,7 +660,7 @@ set cmdheight=4
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+set updatetime=100
 
 " Don't pass messages to |ins-completion-menu|.
 "set shortmess+=c
@@ -792,3 +792,4 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " }}}
+highlight Pmenu ctermbg=gray guibg=gray
