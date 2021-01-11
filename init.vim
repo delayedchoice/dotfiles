@@ -49,11 +49,11 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tomtom/tcomment_vim'
 Plug 'mxw/vim-jsx'
 "Plug 'w0rp/ale'
-Plug 'venantius/vim-cljfmt'
+"Plug 'venantius/vim-cljfmt'
 Plug 'jalvesaq/Nvim-R'
 Plug 'chrisbra/csv.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-rls', 'coc-pairs', 'coc-snippets', 'coc-eslint', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier',  'coc-yank']
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"let g:coc_global_extensions = ['coc-rls', 'coc-pairs', 'coc-snippets', 'coc-eslint', 'coc-css', 'coc-html', 'coc-json', 'coc-sql']
 call plug#end()
 set diffopt+=vertical
 filetype plugin indent on
@@ -67,6 +67,7 @@ let g:esearch = {
   \ 'batch_size': 1000,
   \ 'use':        ['visual', 'word_under_cursor', 'last'],
   \}
+let g:esearch.root_markers  = []
 "let g:ale_linters = {
 "      \ 'clojure': ['clj-kondo', 'joker']
 "      \}
