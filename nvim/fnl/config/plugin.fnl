@@ -87,12 +87,14 @@
  ; Plug 'w0rp/ale'
  :easymotion/vim-easymotion {}
  :sjbach/lusty {}
+ :tpope/vim-fugitive {}
  ;:junegunn/fzf.vim {:requires [:junegunn/fzf]}
  :ibhagwan/fzf-lua {:requires [:nvim-tree/nvim-web-devicons]}
+
  ;:frazrepo/vim-rainbow {:mod :parens}
  ;nmap s <Plug>(easymotion-prefix)
 
 ;(nvim.set_keymap :n :s :<nop> {:noremap true})
 ;(nvim.set_keymap :n :s :<Plug>:easymotion-prefix {:noremap true})
-; vim.keymap.set('i', '<C-j>', '<Plug>(easymotion-bd-w)', { remap = true} ) 
+; vim.keymap.set('i', '<C-j>', '<Plug>(easymotion-bd-w)', { remap = true} )
   )
