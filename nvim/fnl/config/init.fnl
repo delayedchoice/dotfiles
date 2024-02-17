@@ -2,7 +2,9 @@
   {autoload {core aniseed.core
              nvim aniseed.nvim
              util config.util
-             str aniseed.string}})
+             str aniseed.string
+             }
+  import-macros [[ac :aniseed.macros.autocmds]]})
 
 ;generic mapping leaders configuration
 (nvim.set_keymap :i :jj :<ESC> {:noremap true})
@@ -35,10 +37,16 @@
        :relativenumber true
        :rnu  true
        :number true
-       ;:nu rnu       
+       ;:nu rnu
        }]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
+;autocmd BufWinEnter,BufNewFile,BufRead *.clj* set iskeyword-=.
+;autocmd BufWinEnter,BufNewFile,BufRead *.clj* set iskeyword-=-
+;autocmd BufWinEnter,BufNewFile,BufRead *.clj* set iskeyword-=/
+(ac.autocmd [:BufWinEnter :BufNewFile :BufRead] {:pattern [:*.clj*] :command "set iskeyword-=."})
+(ac.autocmd [:BufWinEnter :BufNewFile :BufRead] {:pattern [:*.clj*] :command "set iskeyword-=-"})
+(ac.autocmd [:BufWinEnter :BufNewFile :BufRead] {:pattern [:*.clj*] :command "set iskeyword-=/"})
 
 ;import plugin.fnl
 (require :config.plugin)
