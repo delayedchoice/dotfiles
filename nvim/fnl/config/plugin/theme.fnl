@@ -12,6 +12,7 @@
                        :sidebars :dark
                        :variables {}}
               :on_colors (fn [colors]
+                           (set colors.comment (util.lighten colors.comment 0.5))
                            (set colors.bg_statusline (util.darken colors.bg_dark 0.5)))
               :on_highlights (fn [highlight colors]
                                (set highlight.String {:fg colors.green2})

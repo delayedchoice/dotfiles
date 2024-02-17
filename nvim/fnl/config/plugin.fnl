@@ -89,8 +89,10 @@
  :sjbach/lusty {}
  :tpope/vim-fugitive {}
  ;:junegunn/fzf.vim {:requires [:junegunn/fzf]}
- :ibhagwan/fzf-lua {:requires [:nvim-tree/nvim-web-devicons]}
-
+ ;:ibhagwan/fzf-lua {:requires [:nvim-tree/nvim-web-devicons]}
+ :junegunn/fzf.vim {:requires [:junegunn/fzf]
+                    :run ":call fzf#install"
+                    :mod :fzf}
  ;:frazrepo/vim-rainbow {:mod :parens}
  ;nmap s <Plug>(easymotion-prefix)
 

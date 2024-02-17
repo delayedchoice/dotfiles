@@ -2,3 +2,5 @@
 *.swp
 *~
 .idea
+*.lua
+pat.git
