@@ -4,3 +4,8 @@
 .idea
 *.lua
 pat.git
+.omp/logs
+.omp/agent/sessions
+.omp/agent/terminal-sessions
+.omp/gpu_cache.json
+.omp/agent/history*

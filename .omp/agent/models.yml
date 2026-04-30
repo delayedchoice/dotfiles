@@ -1,0 +1,31 @@
+providers: 
+  ollama-remote: 
+    baseUrl: https://cgo5r296-11434.thundercompute.net/v1
+    api: openai-completions
+    apiKey: ollama
+    models: 
+      - id: qwen3.6:35b
+  ollama: 
+    baseUrl: http://localhost:11434/v1
+    api: openai-completions
+    apiKey: ollama
+    models: 
+      - id: qwen3.5:9b-64k
+        contextWindow: 64000
+      - id: qwen3.5:9b-128k
+        contextWindow: 128000 
+  llama.cpp:
+    baseUrl: http://127.0.0.1:8080/v1
+    api: openai-completions
+    apiKey: llama.cpp
+    models: 
+      - id: Qwen3.6-27B
+
+  llama.cpp-8001:
+    baseUrl: http://127.0.0.1:8001/v1
+    api: openai-completions
+    apiKey: llama.cpp
+    models: 
+      - id: Qwen3.5-9B
+        contextWindow: 150000
+
